@@ -12,11 +12,11 @@ import java.net.URL;
 import org.openqa.selenium.WebElement;
 import io.appium.java_client.windows.WindowsDriver;
 import io.appium.java_client.windows.WindowsElement;
-import winapp.cti.qa.pages.ACDPage;
-import winapp.cti.qa.pages.CallControlPage;
-import winapp.cti.qa.pages.LoadingAppsPage;
-import winapp.cti.qa.pages.PhoneControlPage;
-import winapp.cti.qa.pages.OzekiPage;
+import winapp.cti.qa.methods.ACDPage;
+import winapp.cti.qa.methods.CallControlPage;
+import winapp.cti.qa.methods.LoadingAppsPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ConstantVariables;
 import winapp.cti.qa.util.EventHandler;
 import winapp.cti.qa.util.ExcelMethods;
@@ -59,7 +59,7 @@ public class TestBase {
 	public ExtentReports report; //used to setup a report that will hold the testing info of the script(s)
 	public ExtentTest reportLogger; //used to store testing details in the report
 	
-	//Define PageFactories
+	//Declare PageFactories
 	public LoadingAppsPage loadingAppsPage;
 	public PhoneControlPage phoneControlPage;
 	public CallControlPage callControlPage;
@@ -226,7 +226,7 @@ public class TestBase {
 //			 * System.getProperty("user.dir")
 //			 */
 //			
-//			String command = constantVariables.winnappdriverPath;
+//			String command = constantVariables.winappdriverURL;
 //			ProcessBuilder builder = new ProcessBuilder(command).inheritIO();
 //			process = builder.start();
 //		} catch (IOException e) {

@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -16,6 +16,7 @@ public class LoginTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String loginReportTitle = "TC55212 - US52556 Login to 'Automated Call Distribution (ACD)' with userid = ";
 	
 	//Constructor
 	public LoginTest() {
@@ -61,7 +62,7 @@ public class LoginTest extends TestBase {
 		//If the current row is not an active test row, skip it
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) {
 			//Setup the report & PageFactories
-			performSetup("TC55212 - US52556 Login to 'Automated Call Distribution (ACD)' with userid = " + userid);
+			performSetup(loginReportTitle + userid);
 			
 			//Check if the application connected, as expected
 			checkpoint = phoneControlPage.verifyApplicationConnection(checkpoint);

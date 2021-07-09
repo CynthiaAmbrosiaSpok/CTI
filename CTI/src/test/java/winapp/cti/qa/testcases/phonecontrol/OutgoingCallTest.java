@@ -7,8 +7,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.OzekiPage;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -17,6 +17,7 @@ public class OutgoingCallTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String logoutReportTitle = "TC64722-US52580 Perform Call from: ";
 	
 	//Constructor
 	public OutgoingCallTest() {
@@ -36,6 +37,9 @@ public class OutgoingCallTest extends TestBase {
 		eDriver = initializeApplication("Ozeki", "1");
 		ozekiPage = new OzekiPage(eDriver, reportLogger);
 		
+		//Hangup the transferred call
+		ozekiPage.hangoutCall();
+		
 		//Setup PageFactories for the Spok CTI Client Application
 		eDriver = initializeApplication("CTI", "1");
 		phoneControlPage = new PhoneControlPage(eDriver, reportLogger);
@@ -53,8 +57,8 @@ public class OutgoingCallTest extends TestBase {
 	
 	//Test the login functionality
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
-	public void receiveLineTest(String active, String ozekiNumber, String phoneNumber, String phoneNumberButton, String finalStatus, String dataRow) {
-		System.out.println("@Test - receiveLineTest()");
+	public void outgoingCallTest(String active, String ozekiNumber, String phoneNumber, String phoneNumberButton, String finalStatus, String dataRow) {
+		System.out.println("@Test - outgoingCallTest()");
 		
 		//Initialize Variable(s)
 		checkpoint = new SoftAssert(); //SoftAssert Setup (for identifying checkpoints)
@@ -66,7 +70,7 @@ public class OutgoingCallTest extends TestBase {
 		//If the current row is not an active test row, skip it
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) {
 			//Setup the report & PageFactories
-			performSetup("TC64722-US52580 Perform Call from: " + phoneNumber);
+			performSetup(logoutReportTitle + phoneNumber);
 			
 			//Answer the call
 			phoneControlPage.performOutgoingCall(phoneNumberButton, ozekiNumber);

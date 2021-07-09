@@ -9,7 +9,7 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -19,6 +19,9 @@ public class AgentStatusTest extends TestBase {
 	//Define Variable(s)
 	SoftAssert checkpoint;
 	String selectAgentStatus;
+	String readyStateReportTitle = "TC55312 - US52495 Change Agent State to 'Ready'";
+	String notReadyStateReportTitle = "TC55318 - USTC55308 Change Agent State to 'Not-Ready'";
+	String workStateReportTitle = "TC55484 - USTC55476 Change Agent State to 'Work'";
 	
 	//Constructor
 	public AgentStatusTest() {
@@ -54,8 +57,8 @@ public class AgentStatusTest extends TestBase {
 	
 	//Test the login functionality
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
-	public void readyStateTest(String active, String agentStatus, String finalStatus, String dataRow) {
-		System.out.println("@Test - readyStateTest()");
+	public void agentStatusTest(String active, String agentStatus, String finalStatus, String dataRow) {
+		System.out.println("@Test - agentStatusTest()");
 		
 		//Initialize Variable(s)
 		checkpoint = new SoftAssert(); //SoftAssert Setup (for identifying checkpoints)
@@ -69,15 +72,15 @@ public class AgentStatusTest extends TestBase {
 			
 			//Change Agent Status
 			if (agentStatus.equalsIgnoreCase("ready")) {
-				performSetup("TC55312 - US52495 Change Agent State to 'Ready'");
+				performSetup(readyStateReportTitle);
 				//Click the 'Ready' button
 				phoneControlPage.clickReadyButton();
 			} else if (agentStatus.equalsIgnoreCase("not-ready") || agentStatus.equalsIgnoreCase("not ready")) {
-				performSetup("TC55318 - USTC55308 Change Agent State to 'Not-Ready'");
+				performSetup(notReadyStateReportTitle);
 				//Click the 'Not-Ready' button
 				phoneControlPage.clickNotReadyButton();
 			} else if (agentStatus.equalsIgnoreCase("work")) {
-				performSetup("TC55484 - USTC55476 Change Agent State to 'Work'");
+				performSetup(workStateReportTitle);
 				//Click the 'Work' button
 				phoneControlPage.clickWorkButton();
 			}

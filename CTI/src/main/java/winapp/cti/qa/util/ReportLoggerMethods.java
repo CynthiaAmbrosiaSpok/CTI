@@ -33,11 +33,12 @@ public class ReportLoggerMethods {
 			File source = ts.getScreenshotAs(OutputType.FILE);
 			
 			String destination = constantVariables.screenshotLocation + screenshotName + dateName + ".png";
+			String destination2 = constantVariables.screenshotLocation2 + screenshotName + dateName + ".png";
 			File finalDestination = new File(destination);
 			//FileUtils.copyFile(source, finalDestination);
 			FileHandler.copy(source, finalDestination);
 			
-			reportLogger.log(LogStatus.FAIL,  reportLogger.addScreenCapture(destination)); //adds screenshot to ExtentReport
+			reportLogger.log(LogStatus.FAIL, reportLogger.addScreenCapture(destination) + reportLogger.addScreenCapture(destination2)); //adds screenshot to ExtentReport
 		} catch (Exception e) {
 			System.out.println("Unable to properly take a screenshot and save it to the report");
 			System.out.println(e);

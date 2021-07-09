@@ -1,13 +1,281 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="5" passed="5" failed="0" skipped="0">
+<testng-results ignored="4" total="10" passed="6" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2021-06-23T15:27:13 PDT" name="TestSuite" finished-at="2021-06-23T15:28:16 PDT" duration-ms="62448">
+  <suite started-at="2021-06-29T06:49:55 PDT" name="TestSuite" finished-at="2021-06-29T07:15:46 PDT" duration-ms="1551590">
     <groups>
     </groups>
-    <test started-at="2021-06-23T15:27:13 PDT" name="Spok CTI Client - Regression" finished-at="2021-06-23T15:28:16 PDT" duration-ms="62448">
-      <class name="winapp.cti.qa.testcases.phonecontrol.AgentStatusTest">
-        <test-method is-config="true" signature="beforeSuite(java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:13 PDT" name="beforeSuite" finished-at="2021-06-23T15:27:13 PDT" duration-ms="28" status="PASS">
+    <test started-at="2021-06-29T06:49:55 PDT" name="Spok CTI Client - Regression" finished-at="2021-06-29T07:15:46 PDT" duration-ms="1551590">
+      <class name="winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813]" started-at="2021-06-29T06:58:06 PDT" name="beforeClass" finished-at="2021-06-29T06:58:06 PDT" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method signature="transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813]" started-at="2021-06-29T06:58:06 PDT" name="transferCall" data-provider="inputs" finished-at="2021-06-29T07:02:53 PDT" duration-ms="287191" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Y]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[8161]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[8162]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[8014]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[8014]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PrivateLine]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Success - 2021/06/29 06:55:12 (PDT)]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transferCall -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813]" started-at="2021-06-29T07:02:53 PDT" name="afterMethod" finished-at="2021-06-29T07:02:54 PDT" duration-ms="220" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=transferCall status=SUCCESS method=BlindTransferCallTest.transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813]" started-at="2021-06-29T07:02:54 PDT" name="transferCall" data-provider="inputs" finished-at="2021-06-29T07:05:02 PDT" duration-ms="127956" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Y]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[8161]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[8162]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[8099]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[8024]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PrivateLine]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Success - 2021/06/29 06:57:46 (PDT)]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transferCall -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813]" started-at="2021-06-29T07:05:02 PDT" name="afterMethod" finished-at="2021-06-29T07:05:02 PDT" duration-ms="197" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=transferCall status=SUCCESS method=BlindTransferCallTest.transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest@7c24b813]" started-at="2021-06-29T07:05:02 PDT" name="afterClass" finished-at="2021-06-29T07:05:22 PDT" duration-ms="20195" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- winapp.cti.qa.testcases.phonecontrol.BlindTransferCallTest -->
+      <class name="winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest">
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847]" started-at="2021-06-29T07:05:22 PDT" name="beforeClass" finished-at="2021-06-29T07:05:22 PDT" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method signature="transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847]" started-at="2021-06-29T07:05:22 PDT" name="transferCall" data-provider="inputs" finished-at="2021-06-29T07:11:27 PDT" duration-ms="365212" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Y]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[8161]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[8162]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[8014]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[8014]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PrivateLine]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Success - 2021/06/29 07:02:53 (PDT)]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[1]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transferCall -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847]" started-at="2021-06-29T07:11:27 PDT" name="afterMethod" finished-at="2021-06-29T07:11:28 PDT" duration-ms="204" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=transferCall status=SUCCESS method=ConferenceCallTest.transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847]" started-at="2021-06-29T07:11:28 PDT" name="transferCall" data-provider="inputs" finished-at="2021-06-29T07:15:24 PDT" duration-ms="236493" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Y]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[8161]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[8162]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[8099]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[8024]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PrivateLine]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Success - 2021/06/29 07:05:02 (PDT)]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[2]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- transferCall -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847]" started-at="2021-06-29T07:15:24 PDT" name="afterMethod" finished-at="2021-06-29T07:15:24 PDT" duration-ms="172" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=transferCall status=SUCCESS method=ConferenceCallTest.transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest@2c35e847]" started-at="2021-06-29T07:15:24 PDT" name="afterClass" finished-at="2021-06-29T07:15:46 PDT" duration-ms="21881" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterClass -->
+      </class> <!-- winapp.cti.qa.testcases.phonecontrol.ConferenceCallTest -->
+      <class name="winapp.cti.qa.testcases.phonecontrol.TransferCallTest">
+        <test-method is-config="true" signature="beforeSuite(java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:49:54 PDT" name="beforeSuite" finished-at="2021-06-29T06:49:54 PDT" duration-ms="15" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -23,18 +291,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeClass(java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:13 PDT" name="beforeClass" finished-at="2021-06-23T15:27:13 PDT" duration-ms="7" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:49:55 PDT" name="beforeClass" finished-at="2021-06-29T06:49:55 PDT" duration-ms="1" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeClass -->
-        <test-method signature="readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:15 PDT" name="readyStateTest" data-provider="inputs" finished-at="2021-06-23T15:27:28 PDT" duration-ms="13860" status="PASS">
+        <test-method signature="transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:49:55 PDT" name="transferCall" data-provider="inputs" finished-at="2021-06-29T06:55:12 PDT" duration-ms="316858" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -43,15 +304,40 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[Ready]]>
+                <![CDATA[8161]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Success - 2021/06/23 14:17:39 (PDT)]]>
+                <![CDATA[8162]]>
               </value>
             </param>
             <param index="3">
+              <value>
+                <![CDATA[8014]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[8014]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PrivateLine]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="8">
               <value>
                 <![CDATA[1]]>
               </value>
@@ -59,19 +345,19 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readyStateTest -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:28 PDT" name="afterMethod" finished-at="2021-06-23T15:27:29 PDT" duration-ms="558" status="PASS">
+        </test-method> <!-- transferCall -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:55:12 PDT" name="afterMethod" finished-at="2021-06-29T06:55:13 PDT" duration-ms="536" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=readyStateTest status=SUCCESS method=AgentStatusTest.readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5] output={null}]]]>
+                <![CDATA[[TestResult name=transferCall status=SUCCESS method=TransferCallTest.transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:29 PDT" name="readyStateTest" data-provider="inputs" finished-at="2021-06-23T15:27:41 PDT" duration-ms="12367" status="PASS">
+        <test-method signature="transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:55:13 PDT" name="transferCall" data-provider="inputs" finished-at="2021-06-29T06:57:46 PDT" duration-ms="153672" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -80,15 +366,40 @@
             </param>
             <param index="1">
               <value>
-                <![CDATA[Not-Ready]]>
+                <![CDATA[8161]]>
               </value>
             </param>
             <param index="2">
               <value>
-                <![CDATA[Success - 2021/06/23 14:18:00 (PDT)]]>
+                <![CDATA[8162]]>
               </value>
             </param>
             <param index="3">
+              <value>
+                <![CDATA[8099]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[8024]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[PrivateLine]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[Failed - 2021/06/29 06:48:15 (PDT)]]>
+              </value>
+            </param>
+            <param index="8">
               <value>
                 <![CDATA[2]]>
               </value>
@@ -96,134 +407,27 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readyStateTest -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:41 PDT" name="afterMethod" finished-at="2021-06-23T15:27:42 PDT" duration-ms="228" status="PASS">
+        </test-method> <!-- transferCall -->
+        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:57:46 PDT" name="afterMethod" finished-at="2021-06-29T06:57:47 PDT" duration-ms="267" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=readyStateTest status=SUCCESS method=AgentStatusTest.readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5] output={null}]]]>
+                <![CDATA[[TestResult name=transferCall status=SUCCESS method=TransferCallTest.transferCall(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:42 PDT" name="readyStateTest" data-provider="inputs" finished-at="2021-06-23T15:27:53 PDT" duration-ms="11133" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Y]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Ready]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Success - 2021/06/23 14:18:20 (PDT)]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[3]]>
-              </value>
-            </param>
-          </params>
+        <test-method is-config="true" signature="afterClass()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T06:57:47 PDT" name="afterClass" finished-at="2021-06-29T06:58:06 PDT" duration-ms="19375" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readyStateTest -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:53 PDT" name="afterMethod" finished-at="2021-06-23T15:27:53 PDT" duration-ms="189" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=readyStateTest status=SUCCESS method=AgentStatusTest.readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:27:53 PDT" name="readyStateTest" data-provider="inputs" finished-at="2021-06-23T15:28:04 PDT" duration-ms="11640" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Y]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Work]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Success - 2021/06/23 14:18:42 (PDT)]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[4]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- readyStateTest -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:28:04 PDT" name="afterMethod" finished-at="2021-06-23T15:28:05 PDT" duration-ms="186" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=readyStateTest status=SUCCESS method=AgentStatusTest.readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:28:05 PDT" name="readyStateTest" data-provider="inputs" finished-at="2021-06-23T15:28:16 PDT" duration-ms="10898" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Y]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[Ready]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[Success - 2021/06/23 14:19:01 (PDT)]]>
-              </value>
-            </param>
-            <param index="3">
-              <value>
-                <![CDATA[5]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- readyStateTest -->
-        <test-method is-config="true" signature="afterMethod(org.testng.ITestResult)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:28:16 PDT" name="afterMethod" finished-at="2021-06-23T15:28:16 PDT" duration-ms="175" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=readyStateTest status=SUCCESS method=AgentStatusTest.readyStateTest(java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.AgentStatusTest@618425b5]" started-at="2021-06-23T15:28:16 PDT" name="afterSuite" finished-at="2021-06-23T15:28:16 PDT" duration-ms="0" status="PASS">
+        </test-method> <!-- afterClass -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:winapp.cti.qa.testcases.phonecontrol.TransferCallTest@25fb8912]" started-at="2021-06-29T07:15:46 PDT" name="afterSuite" finished-at="2021-06-29T07:15:46 PDT" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
-      </class> <!-- winapp.cti.qa.testcases.phonecontrol.AgentStatusTest -->
+      </class> <!-- winapp.cti.qa.testcases.phonecontrol.TransferCallTest -->
     </test> <!-- Spok CTI Client - Regression -->
   </suite> <!-- TestSuite -->
 </testng-results>

@@ -104,6 +104,9 @@ public class PhoneControlLocators {
 	@FindBy(name="Conference")
 	protected WebElement conferenceButton;
 	
+	@FindBy(name="Cancel")
+	protected WebElement cancelButton;
+	
 	@FindBy(xpath="//*[@AutomationId='display1']")
 	protected WebElement displayInfoField1;
 	

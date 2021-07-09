@@ -9,8 +9,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.OzekiPage;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -19,6 +19,8 @@ public class TransferCallTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String transferWhileRingingReportTitle = "TC64727-US52730 Transfer Call with a 'Ringing' Destination";
+	String transferWhileConnectedReportTitle = "TC64729-US52730 Transfer Call with a 'Connected' Destination";
 	
 	//Constructor
 	public TransferCallTest() {
@@ -34,7 +36,7 @@ public class TransferCallTest extends TestBase {
 		System.out.println(constantVariables.reportMessage);
 		reportLogger.log(LogStatus.INFO, constantVariables.reportMessage);
 	}
-
+	
 	public void initializeApplications(String reportTitle) {
 		System.out.println("Initializing 2nd Ozeki Application");
 		
@@ -65,7 +67,7 @@ public class TransferCallTest extends TestBase {
 			eDriver.findElement(By.name("OK")).click();
 			
 			//Pause the script for a bit
-			genMethods.waitFor(3);
+			genMethods.waitFor(6);
 		} catch (Exception e) {
 			System.out.print("");
 		}
@@ -134,7 +136,7 @@ public class TransferCallTest extends TestBase {
 	
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
 	public void transferCall(String active, String ozekiNumber, String ozekiNumber2, String phoneNumber, String phoneNumberButton, String callType, String ozekiStatus, String finalStatus, String dataRow) {
-		System.out.println("@Test - initializeApplications()");
+		System.out.println("@Test - transferCall()");
 		
 		//Initialize Variable(s)
 		checkpoint = new SoftAssert(); //SoftAssert Setup (for identifying checkpoints)
@@ -148,9 +150,9 @@ public class TransferCallTest extends TestBase {
 			//Setup Report Title
 			String reportTitle = "Transfer Call";
 			if (ozekiStatus.equalsIgnoreCase("ringing")) {
-				reportTitle = "TC64727-US52730 Transfer Call with a 'Ringing' Destination";
+				reportTitle = transferWhileRingingReportTitle;
 			} else if (ozekiStatus.equalsIgnoreCase("connected")) {
-				reportTitle = "TC64729-US52730 Transfer Call with a 'Connected' Destination";
+				reportTitle = transferWhileConnectedReportTitle;
 			}
 			
 			//Setup 2nd Ozeki Application
@@ -173,6 +175,9 @@ public class TransferCallTest extends TestBase {
 			
 			//Check if the call status is set to 'ring'
 			checkpoint = phoneControlPage.verifyIncomingCall(checkpoint, ozekiNumber, phoneNumber);
+			
+			//Pause the script for a bit
+			genMethods.waitFor(3);
 			
 			//Answer the incoming call (from Phone Control)
 			phoneControlPage.clickAnswerButton(phoneNumberButton);

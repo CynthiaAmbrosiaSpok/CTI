@@ -7,8 +7,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.PhoneControlPage;
-import winapp.cti.qa.pages.OzekiPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -17,6 +17,7 @@ public class HoldLineTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String holdLineReportTitle = "TC64724-US53040 Hold Call from: ";
 	
 	//Constructor
 	public HoldLineTest() {
@@ -66,7 +67,7 @@ public class HoldLineTest extends TestBase {
 		//If the current row is not an active test row, skip it
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) {
 			//Setup the report & PageFactories
-			performSetup("TC64724 - US#### Hold Call");
+			performSetup(holdLineReportTitle);
 			
 			//Register the Ozeki Phone
 			if (iteration == 1) {
@@ -82,6 +83,9 @@ public class HoldLineTest extends TestBase {
 			
 			//Check if the call status is set to 'ring'
 			checkpoint = phoneControlPage.verifyIncomingCall(checkpoint, ozekiNumber, phoneNumber);
+			
+			//Pause the script for a bit
+			genMethods.waitFor(3);
 			
 			//Answer the call
 			phoneControlPage.clickAnswerButton(phoneNumberButton);

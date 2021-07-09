@@ -9,9 +9,9 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.CallControlPage;
-import winapp.cti.qa.pages.OzekiPage;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.CallControlPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -20,27 +20,28 @@ public class BlindTransferCallTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String blindTransferReportTitle = "TC64725-US52725 Blind Transfer Call With Connected Destination";
 	
 	//Constructor
 	public BlindTransferCallTest() {
 		super();
 	}
 	
-	public void initializeReport() {
+	public void initializeReport(String reportTitle) {
 		//Setup the Report
 		report = ExtentFactory.getInstance();
-		reportLogger = report.startTest("TC64728-US52729 Transfer Call With Connected Destination");
+		reportLogger = report.startTest(reportTitle);
 		
 		//Initialize PageFactories
 		System.out.println(constantVariables.reportMessage);
 		reportLogger.log(LogStatus.INFO, constantVariables.reportMessage);
 	}
 
-	public void initializeApplications() {
+	public void initializeApplications(String reportTitle) {
 		System.out.println("Initializing 2nd Ozeki Application");
 		
 		//Setup the report & PageFactories
-		initializeReport();
+		initializeReport(reportTitle);
 		
 		//Setup reference to the '2nd Ozeki Application' data sheet
 		excelMethods.setSheetName("Load Second Ozeki App");
@@ -102,9 +103,9 @@ public class BlindTransferCallTest extends TestBase {
 		checkpoint.assertAll();
 	}
 	
-	public void performSetup() {
+	public void performSetup(String reportTitle) {
 		//Initialize the Report
-		initializeReport();
+		initializeReport(reportTitle);
 		
 		//Setup PageFactories for the Spok CTI Client Application
 		eDriver = initializeApplication("CTI", "1");
@@ -135,8 +136,8 @@ public class BlindTransferCallTest extends TestBase {
 	}
 	
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
-	public void transferCall(String active, String ozekiNumber, String ozekiNumber2, String phoneNumber, String phoneNumberButton, String callType, String ozekiStatus, String finalStatus, String dataRow) {
-		System.out.println("@Test - transferCall()");
+	public void blindTransferCall(String active, String ozekiNumber, String ozekiNumber2, String phoneNumber, String phoneNumberButton, String callType, String ozekiStatus, String finalStatus, String dataRow) {
+		System.out.println("@Test - blindTransferCall()");
 		
 		//Initialize Variable(s)
 		checkpoint = new SoftAssert(); //SoftAssert Setup (for identifying checkpoints)
@@ -149,16 +150,19 @@ public class BlindTransferCallTest extends TestBase {
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) {
 			//Setup 2nd Ozeki Application
 			if (bringupOzeki) {
-				initializeApplications();
+				initializeApplications(blindTransferReportTitle);
 			} else {
-				performSetup();
+				performSetup(blindTransferReportTitle);
 			}
 			
 			//Switch to the first Ozeki Application
 			eDriver = initializeApplication("Ozeki", "1");
 			ozekiPage = new OzekiPage(eDriver, reportLogger);
 			genMethods.waitFor(3);
-			System.out.println("jkl;");
+			
+			//Hangup the transferred call
+			ozekiPage.hangoutCall();
+			
 			//Enter the phone number & perform the call
 			ozekiPage.performCallField(phoneNumber);
 			

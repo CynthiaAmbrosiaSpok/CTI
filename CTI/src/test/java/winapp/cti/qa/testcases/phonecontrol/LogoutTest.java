@@ -7,7 +7,7 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -16,16 +16,17 @@ public class LogoutTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String logoutReportTitle = "TC#### - US#### Logout of the Spok CTI Client Application";
 	
 	//Constructor
 	public LogoutTest() {
 		super();
 	}
 	
-	public void performSetup() {
+	public void performSetup(String reportTitle) {
 		//Setup the Report
 		report = ExtentFactory.getInstance();
-		reportLogger = report.startTest("Logout of the Spok CTI Client Application");
+		reportLogger = report.startTest(reportTitle);
 		
 		//Initialize PageFactories
 		System.out.println(constantVariables.reportMessage);
@@ -48,7 +49,7 @@ public class LogoutTest extends TestBase {
 	
 	//Test the login functionality
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
-	public void TC55182_LoginTest(String active, String userid, String agentStatus, String finalResult, String dataRow) {
+	public void logoutTest(String active, String userid, String agentStatus, String finalResult, String dataRow) {
 		System.out.println("@Test - logoutTest()");
 		
 		//Initialize Variable(s)
@@ -61,7 +62,7 @@ public class LogoutTest extends TestBase {
 		//If the current row is not an active test row, skip it
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) {
 			//Setup the report & PageFactories
-			performSetup();
+			performSetup(logoutReportTitle);
 			
 			//Login with the desired userid
 			if (phoneControlPage.checkLogoutStatus()) {

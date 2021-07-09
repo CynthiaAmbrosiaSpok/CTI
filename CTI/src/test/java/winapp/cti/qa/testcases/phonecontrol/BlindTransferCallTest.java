@@ -9,8 +9,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.OzekiPage;
-import winapp.cti.qa.pages.PhoneControlPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -19,27 +19,28 @@ public class BlindTransferCallTest extends TestBase {
 	
 	//Define Variable(s)
 	SoftAssert checkpoint;
+	String blindTransferReportTitle = "TC64726-US52726 Blind Transfer Call With Connected Destination";
 	
 	//Constructor
 	public BlindTransferCallTest() {
 		super();
 	}
 	
-	public void initializeReport() {
+	public void initializeReport(String reportTitle) {
 		//Setup the Report
 		report = ExtentFactory.getInstance();
-		reportLogger = report.startTest("TC64729-US52730 Transfer Call With Connected Destination");
+		reportLogger = report.startTest(reportTitle);
 		
 		//Initialize PageFactories
 		System.out.println(constantVariables.reportMessage);
 		reportLogger.log(LogStatus.INFO, constantVariables.reportMessage);
 	}
 
-	public void initializeApplications() {
+	public void initializeApplications(String reportTitle) {
 		System.out.println("Initializing 2nd Ozeki Application");
 		
 		//Setup the report & PageFactories
-		initializeReport();
+		initializeReport(reportTitle);
 		
 		//Setup reference to the '2nd Ozeki Application' data sheet
 		excelMethods.setSheetName("Load Second Ozeki App");
@@ -65,7 +66,7 @@ public class BlindTransferCallTest extends TestBase {
 			eDriver.findElement(By.name("OK")).click();
 			
 			//Pause the script for a bit
-			genMethods.waitFor(3);
+			genMethods.waitFor(6);
 		} catch (Exception e) {
 			System.out.print("");
 		}
@@ -100,9 +101,9 @@ public class BlindTransferCallTest extends TestBase {
 		checkpoint.assertAll();
 	}
 	
-	public void performSetup() {
+	public void performSetup(String reportTitle) {
 		//Initialize the Report
-		initializeReport();
+		initializeReport(reportTitle);
 		
 		//Setup PageFactories for the Spok CTI Client Application
 		eDriver = initializeApplication("CTI", "1");
@@ -133,8 +134,8 @@ public class BlindTransferCallTest extends TestBase {
 	}
 	
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
-	public void transferCall(String active, String ozekiNumber, String ozekiNumber2, String phoneNumber, String phoneNumberButton, String callType, String ozekiStatus, String finalStatus, String dataRow) {
-		System.out.println("@Test - initializeApplications()");
+	public void blindTransferCall(String active, String ozekiNumber, String ozekiNumber2, String phoneNumber, String phoneNumberButton, String callType, String ozekiStatus, String finalStatus, String dataRow) {
+		System.out.println("@Test - blindTransferCall()");
 		
 		//Initialize Variable(s)
 		checkpoint = new SoftAssert(); //SoftAssert Setup (for identifying checkpoints)
@@ -147,9 +148,9 @@ public class BlindTransferCallTest extends TestBase {
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) {
 			//Setup 2nd Ozeki Application
 			if (bringupOzeki) {
-				initializeApplications();
+				initializeApplications(blindTransferReportTitle);
 			} else {
-				performSetup();
+				performSetup(blindTransferReportTitle);
 			}
 			
 			//Initialize PageFactories
@@ -160,6 +161,9 @@ public class BlindTransferCallTest extends TestBase {
 			eDriver = initializeApplication("Ozeki", "1");
 			ozekiPage = new OzekiPage(eDriver, reportLogger);
 			
+			//Hangup the transferred call
+			ozekiPage.hangoutCall();
+			
 			//Enter the phone number & perform the call
 			ozekiPage.performCallField(phoneNumber);
 			
@@ -169,6 +173,9 @@ public class BlindTransferCallTest extends TestBase {
 			
 			//Check if the call status is set to 'ring'
 			checkpoint = phoneControlPage.verifyIncomingCall(checkpoint, ozekiNumber, phoneNumber);
+			
+			//Pause the script for a bit
+			genMethods.waitFor(3);
 			
 			//Answer the incoming call (from Phone Control)
 			phoneControlPage.clickAnswerButton(phoneNumberButton);

@@ -9,8 +9,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.ACDPage;
-import winapp.cti.qa.pages.CallControlPage;
+import winapp.cti.qa.methods.ACDPage;
+import winapp.cti.qa.methods.CallControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -20,6 +20,9 @@ public class AgentStatusTest extends TestBase {
 	//Define Variable(s)
 	SoftAssert checkpoint;
 	String selectAgentStatus;
+	String readyStateReportTitle = "TC55303-US52495 Change Agent State to 'Ready'";
+	String notReadyStateReportTitle = "TC55308-USTC55308 Change Agent State to 'Not-Ready'";
+	String workStateReportTitle = "TC55476-USTC55476 Change Agent State to 'Work'";
 	
 	//Constructor
 	public AgentStatusTest() {
@@ -56,8 +59,8 @@ public class AgentStatusTest extends TestBase {
 	
 	//Test the login functionality
 	@Test(dataProvider="inputs", dataProviderClass=ExcelMethods.class)
-	public void readyStateTest(String active, String agentStatus, String finalStatus, String dataRow) {
-		System.out.println("@Test - readyStateTest()");
+	public void agentStatusTest(String active, String agentStatus, String finalStatus, String dataRow) {
+		System.out.println("@Test - agentStatusTest()");
 		
 		//Initialize Variable(s)
 		checkpoint = new SoftAssert(); //SoftAssert Setup (for identifying checkpoints)
@@ -70,11 +73,11 @@ public class AgentStatusTest extends TestBase {
 		if ((active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes")) && (selectAgentStatus.equalsIgnoreCase(agentStatus) || selectAgentStatus.equalsIgnoreCase(""))) {
 			//Setup the report & PageFactories
 			if(agentStatus.equalsIgnoreCase("ready")) {
-				performSetup("TC55303-US52495 Change Agent State to 'Ready'");
+				performSetup(readyStateReportTitle);
 			} else if (agentStatus.equalsIgnoreCase("not-ready") || agentStatus.equalsIgnoreCase("not ready")) {
-				performSetup("TC55308-USTC55308 Change Agent State to 'Not-Ready'");
+				performSetup(notReadyStateReportTitle);
 			} else if (agentStatus.equalsIgnoreCase("work")) {
-				performSetup("TC55476-USTC55476 Change Agent State to 'Work'");
+				performSetup(workStateReportTitle);
 			}
 			
 			//Navigate to the ACD Page

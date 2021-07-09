@@ -9,8 +9,8 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.LogStatus;
 
 import winapp.cti.qa.base.TestBase;
-import winapp.cti.qa.pages.PhoneControlPage;
-import winapp.cti.qa.pages.OzekiPage;
+import winapp.cti.qa.methods.OzekiPage;
+import winapp.cti.qa.methods.PhoneControlPage;
 import winapp.cti.qa.util.ExcelMethods;
 import winapp.cti.qa.util.ExtentFactory;
 import winapp.cti.qa.util.GeneralMethods;
@@ -20,6 +20,7 @@ public class ReceiveLineTest extends TestBase {
 	//Define Variable(s)
 	SoftAssert checkpoint;
 	String selectCallType;
+	String receiveLineReportTitle = "TC51659 - US52496 Answer Call from: ";
 	
 	//Constructor
 	public ReceiveLineTest() {
@@ -38,6 +39,12 @@ public class ReceiveLineTest extends TestBase {
 		//Setup PageFactories for the Ozeki Application
 		eDriver = initializeApplication("Ozeki", "1");
 		ozekiPage = new OzekiPage(eDriver, reportLogger);
+		
+		//Register the Ozeki Phone
+		ozekiPage.registerOzeki();
+		
+		//Wait for the Ozeki Application to register
+		ozekiPage.waitForRegistration();
 		
 		//Setup PageFactories for the Spok CTI Client Application
 		eDriver = initializeApplication("CTI", "1");
@@ -72,28 +79,19 @@ public class ReceiveLineTest extends TestBase {
 		//If the current row is not an active test row, skip it
 		if (active.equalsIgnoreCase("y") || active.equalsIgnoreCase("yes") && (selectCallType.equalsIgnoreCase(callType) || selectCallType.equalsIgnoreCase(""))) {
 			//Setup the report & PageFactories
-			performSetup("TC51659 - US52496 Answer Call from: " + phoneNumber);
+			performSetup(receiveLineReportTitle + phoneNumber);
 			
-//			//Register the Ozeki Phone
-//			if (iteration == 1) {
-//				//Register the Ozeki Phone
-//				ozekiPage.registerOzeki();
-//				
-//				//Wait for the Ozeki Application to register
-//				ozekiPage.waitForRegistration();
-//			}
-			
-			//Register the Ozeki Phone
-			ozekiPage.registerOzeki();
-			
-			//Wait for the Ozeki Application to register
-			ozekiPage.waitForRegistration();
+			//Hangup the transferred call
+			ozekiPage.hangoutCall();
 			
 			//Enter the phone number & perform the call
 			ozekiPage.performCallField(phoneNumber);
 			
 			//Check if the call status is set to 'ring'
 			checkpoint = phoneControlPage.verifyIncomingCall(checkpoint, ozekiNumber, phoneNumber);
+			
+			//Pause the script for a bit
+			genMethods.waitFor(3);
 			
 			//Answer the call
 			phoneControlPage.clickAnswerButton(phoneNumberButton);
